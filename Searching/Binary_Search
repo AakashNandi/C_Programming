@@ -1,0 +1,55 @@
+/* Algorithm:-
+
+Step 1> Initialize Variables:
+Step 2> Start with two pointers, low and high, set to the beginning and end of the array, respectively.
+where, low points to the first element, and high points to the last element.
+Step 3> Iterate Until the Element is Found or the Subarray is Empty:
+        * While low is less than or equal to high:
+            - Calculate the middle index mid as the average of low and high.
+Step 4> Compare the middle element with the target element:
+        * If the middle element is equal to the target element, the search is successful.
+        * If the middle element is less than the target element, narrow the search to the right half by updating low to mid + 1.
+        * If the middle element is greater than the target element, narrow the search to the left half by updating high to mid - 1.
+Step 5> If the Element is Not Found:
+        * If low exceeds high, the target element is not in the array.
+*/
+
+Code:-
+
+#include <stdio.h>
+
+int binarySearch(int array[], int size, int target) {
+    int low = 0;
+    int high = size - 1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+
+        if (array[mid] == target) {
+            return mid; // Target element found
+        } else if (array[mid] < target) {
+            low = mid + 1; // Search in the right half
+        } else {
+            high = mid - 1; // Search in the left half
+        }
+    }
+
+    return -1; // Target element not found (Failure Case)
+}
+
+int main() {
+    int array[] = {23, 56, 67, 78};
+    int size = sizeof(array) / sizeof(array[0]);    //Dividing the total size of the array (sizeof(array)) - here 16 bytes (4bytes*4)
+                                                //by the size of one element (sizeof(array[0])) - here 4 bytes gives the number of elements in the array = 4.
+    int target = 67;
+
+    int result = binarySearch(array, size, target);    //Calling BinarySearch Function
+
+    if (result != -1) {
+        printf("Element %d found at index %d.\n", target, result);
+    } else {
+        printf("Element %d not found in the array.\n", target);
+    }
+
+    return 0;
+}
