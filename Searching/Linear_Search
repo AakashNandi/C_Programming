@@ -1,8 +1,8 @@
 /*Algorithm:-
 
 Step 1> Start.
-Step 2> Define the array with the elements {23, 56, 67, 78}.
-Step 3> Define the target element to search (67).
+Step 2> Define the array.
+Step 3> Define the target element to search.
 Step 4> Iterate through each element of the array.
 Step 5> If the current element is equal to the target element, print the index and exit.
 Step 6> If the current element is not equal to the target, continue to the next element.
